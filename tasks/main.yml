@@ -1,0 +1,17 @@
+#SPDX-License-Identifier: MIT-0
+---
+# tasks file for nginx_role
+- name: Install Nginx
+  apt:
+        name: nginx
+        state: latest
+
+- name: Start Nginx
+  service:
+        name: nginx
+        state: started
+
+- name: Copy HTML file
+  copy:
+        src: /home/adarshsingh/workspace/ansible/index.html
+        dest: /var/www/html/index.html
